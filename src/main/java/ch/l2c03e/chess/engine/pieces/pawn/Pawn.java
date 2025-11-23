@@ -27,4 +27,8 @@ public class Pawn extends ChessPiece {
     public List<Position> getPossibleMoves(List<ChessPiece> otherPieces) {
         return pawn.getPossibleMoves(otherPieces);
     }
+
+    public boolean canPromote() {
+        return pawn.canPromote();
+    }
 }
