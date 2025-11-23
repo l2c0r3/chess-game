@@ -31,16 +31,15 @@ public abstract class PawnAbstr extends ChessPiece {
             return Collections.emptyList();
         }
 
-        final var move1FieldForward = nextFieldForward();
-        final var move2FieldsForward = next2FieldsForward();
-
         // standard - can move forward when no other piece is there
+        final var move1FieldForward = nextFieldForward();
         if (isFieldNoOne(otherPieces, move1FieldForward)) {
             possibleMoves.add(move1FieldForward);
         }
 
         // case - is on stat line
         if (isOnStartLine()) {
+            final var move2FieldsForward = next2FieldsForward();
             // check if other piece is on the way
             if (isFieldNoOne(otherPieces, move1FieldForward) && isFieldNoOne(otherPieces, move2FieldsForward)) {
                 possibleMoves.add(move2FieldsForward);
