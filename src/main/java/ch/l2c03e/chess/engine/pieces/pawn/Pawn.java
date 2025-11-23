@@ -14,7 +14,7 @@ public class Pawn extends ChessPiece {
         super(startPosition, color);
         this.pawn = switch (color) {
             case WHITE -> new WhitePawn(startPosition);
-            case BLACK -> new WhitePawn(startPosition);
+            case BLACK -> new BlackPawn(startPosition);
         };
     }
 

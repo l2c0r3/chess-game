@@ -5,42 +5,38 @@ import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
 import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
-class WhitePawn extends PawnAbstr {
+class BlackPawn extends PawnAbstr {
 
-    private WhitePawn(Position startPosition, Color color) {
+    private BlackPawn(Position startPosition, Color color) {
         super(startPosition, color);
     }
 
-    public WhitePawn(Position startPosition) {
-        super(startPosition, Color.WHITE);
+    public BlackPawn(Position startPosition) {
+        super(startPosition, Color.BLACK);
     }
 
     @Override
     public boolean canAttack(ChessPiece otherPieces) {
-        if (Color.WHITE.equals(otherPieces.getColor())) {
-            return false;
-        }
-
         return false;
     }
 
     @Override
     protected boolean isOnStartLine() {
-        return getPosition().y() == 2;
+        return getPosition().y() == 7;
     }
 
     @Override
     protected boolean isOnTopOfBoard() {
-        return getPosition().y() == Board.MAX_Y;
+        return getPosition().y() == Board.MIN_Y;
     }
 
     @Override
     protected Position nextFieldForward() {
-        return new Position(getPosition().x(), getPosition().y() + 1);
+        return new Position(getPosition().x(), getPosition().y() - 1);
     }
 
     @Override
     protected Position next2FieldsForward() {
-        return new Position(getPosition().x(), getPosition().y() + 2);
+        return new Position(getPosition().x(), getPosition().y() - 2);
     }
 }
