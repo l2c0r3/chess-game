@@ -1,9 +1,8 @@
-package ch.l2c03e.chess.engine.pieces;
+package ch.l2c03e.chess.engine.pieces.pawn;
 
 import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
-import ch.l2c03e.chess.engine.pieces.pawn.PawnAbstr;
-import ch.l2c03e.chess.engine.pieces.pawn.WhitePawn;
+import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
 import java.util.List;
 

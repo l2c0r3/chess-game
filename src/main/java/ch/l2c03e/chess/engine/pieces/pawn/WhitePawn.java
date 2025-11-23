@@ -5,7 +5,7 @@ import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
 import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
-public class WhitePawn extends PawnAbstr {
+class WhitePawn extends PawnAbstr {
 
     private WhitePawn(Position startPosition, Color color) {
         super(startPosition, color);
