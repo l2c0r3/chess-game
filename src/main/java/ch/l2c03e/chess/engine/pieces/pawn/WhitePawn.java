@@ -5,23 +5,17 @@ import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
 import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
+import java.util.Objects;
+import java.util.function.Predicate;
+
 class WhitePawn extends PawnAbstr {
 
     private WhitePawn(Position startPosition, Color color) {
         super(startPosition, color);
     }
 
-    public WhitePawn(Position startPosition) {
+    protected WhitePawn(Position startPosition) {
         super(startPosition, Color.WHITE);
-    }
-
-    @Override
-    public boolean canAttack(ChessPiece otherPieces) {
-        if (Color.WHITE.equals(otherPieces.getColor())) {
-            return false;
-        }
-
-        return false;
     }
 
     @Override
@@ -42,5 +36,21 @@ class WhitePawn extends PawnAbstr {
     @Override
     protected Position next2FieldsForward() {
         return new Position(getPosition().x(), getPosition().y() + 2);
+    }
+
+    @Override
+    protected boolean isOtherPieceIsLeftDiagonal(ChessPiece piece) {
+        char possibleXAche = (char) (getPosition().x() - 1);
+        int possibleYAche = getPosition().y() + 1;
+        var possiblePos = new Position(possibleXAche, possibleYAche);
+        return possiblePos.equals(piece.getPosition());
+    }
+
+    @Override
+    protected boolean isOtherPieceIsRightDiagonal(ChessPiece piece) {
+        char possibleXAche = (char) (getPosition().x() + 1);
+        int possibleYAche = getPosition().y() + 1;
+        var possiblePos = new Position(possibleXAche, possibleYAche);
+        return possiblePos.equals(piece.getPosition());
     }
 }

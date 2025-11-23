@@ -1,5 +1,6 @@
 package ch.l2c03e.chess.engine.pieces.pawn;
 
+import ch.l2c03e.chess.engine.base.Board;
 import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
 import ch.l2c03e.chess.engine.pieces.ChessPiece;
@@ -7,6 +8,8 @@ import ch.l2c03e.chess.engine.pieces.ChessPiece;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 public abstract class PawnAbstr extends ChessPiece {
 
@@ -52,6 +55,20 @@ public abstract class PawnAbstr extends ChessPiece {
         return possibleMoves;
     }
 
+    @Override
+    public boolean canAttack(ChessPiece otherPiece) {
+        if (getColor().equals(otherPiece.getColor())) {
+            return false;
+        }
+
+        if (Objects.equals(getPosition().x(), Board.MIN_X)) {
+            return isOtherPieceIsRightDiagonal(otherPiece);
+        } else if (Objects.equals(getPosition().x(), Board.MAX_X)) {
+            return isOtherPieceIsLeftDiagonal(otherPiece);
+        } else {
+            return isOtherPieceIsRightDiagonal(otherPiece) || isOtherPieceIsLeftDiagonal(otherPiece);
+        }
+    }
 
     public boolean canPromote() {
         return isOnTopOfBoard();
@@ -61,5 +78,6 @@ public abstract class PawnAbstr extends ChessPiece {
     protected abstract boolean isOnTopOfBoard();
     protected abstract Position nextFieldForward();
     protected abstract Position next2FieldsForward();
-
+    protected abstract boolean isOtherPieceIsLeftDiagonal(ChessPiece piece);
+    protected abstract boolean isOtherPieceIsRightDiagonal(ChessPiece piece);
 }

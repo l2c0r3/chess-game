@@ -5,19 +5,17 @@ import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
 import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
+import java.util.Objects;
+import java.util.function.Predicate;
+
 class BlackPawn extends PawnAbstr {
 
     private BlackPawn(Position startPosition, Color color) {
         super(startPosition, color);
     }
 
-    public BlackPawn(Position startPosition) {
+    protected BlackPawn(Position startPosition) {
         super(startPosition, Color.BLACK);
-    }
-
-    @Override
-    public boolean canAttack(ChessPiece otherPieces) {
-        return false;
     }
 
     @Override
@@ -38,5 +36,21 @@ class BlackPawn extends PawnAbstr {
     @Override
     protected Position next2FieldsForward() {
         return new Position(getPosition().x(), getPosition().y() - 2);
+    }
+
+    @Override
+    protected boolean isOtherPieceIsLeftDiagonal(ChessPiece piece) {
+        char possibleXAche = (char) (getPosition().x() - 1);
+        int possibleYAche = getPosition().y() - 1;
+        var possiblePos = new Position(possibleXAche, possibleYAche);
+        return possiblePos.equals(piece.getPosition());
+    }
+
+    @Override
+    protected boolean isOtherPieceIsRightDiagonal(ChessPiece piece) {
+        char possibleXAche = (char) (getPosition().x() + 1);
+        int possibleYAche = getPosition().y() - 1;
+        var possiblePos = new Position(possibleXAche, possibleYAche);
+        return possiblePos.equals(piece.getPosition());
     }
 }
