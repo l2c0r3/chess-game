@@ -55,8 +55,7 @@ public abstract class PawnAbstr extends ChessPiece {
         return possibleMoves;
     }
 
-    @Override
-    public boolean canAttack(ChessPiece otherPiece) {
+    protected boolean canAttack(ChessPiece otherPiece) {
         if (getColor().equals(otherPiece.getColor())) {
             return false;
         }

@@ -27,9 +27,4 @@ public class Pawn extends ChessPiece {
     public List<Position> getPossibleMoves(List<ChessPiece> otherPieces) {
         return pawn.getPossibleMoves(otherPieces);
     }
-
-    @Override
-    public boolean canAttack(ChessPiece otherPieces) {
-        return pawn.canAttack(otherPieces);
-    }
 }

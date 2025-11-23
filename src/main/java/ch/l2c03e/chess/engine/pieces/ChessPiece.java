@@ -31,8 +31,6 @@ public abstract class ChessPiece {
 
     public abstract List<Position> getPossibleMoves(List<ChessPiece> otherPieces);
 
-    public abstract boolean canAttack(ChessPiece otherPiece  );
-
     protected boolean isFieldNoOne(List<ChessPiece> otherPieces, Position pos) {
         return otherPieces.stream()
                 .map(ChessPiece::getPosition)
