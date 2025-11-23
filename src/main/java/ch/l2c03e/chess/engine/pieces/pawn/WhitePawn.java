@@ -1,20 +1,18 @@
-package ch.l2c03e.chess.engine.pieces.white;
+package ch.l2c03e.chess.engine.pieces.pawn;
 
 import ch.l2c03e.chess.engine.base.Board;
 import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
-import ch.l2c03e.chess.engine.pieces.base.ChessPiece;
-import ch.l2c03e.chess.engine.pieces.base.Pawn;
+import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
-public class WhitePawn extends Pawn {
+public class WhitePawn extends PawnAbstr {
 
-    public WhitePawn(Position startPosition) {
-        super(startPosition);
+    private WhitePawn(Position startPosition, Color color) {
+        super(startPosition, color);
     }
 
-    @Override
-    public Color getColor() {
-        return Color.WHITE;
+    public WhitePawn(Position startPosition) {
+        super(startPosition, Color.WHITE);
     }
 
     @Override

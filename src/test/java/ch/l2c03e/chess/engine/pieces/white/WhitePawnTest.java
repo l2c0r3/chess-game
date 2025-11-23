@@ -1,6 +1,7 @@
 package ch.l2c03e.chess.engine.pieces.white;
 
 import ch.l2c03e.chess.engine.base.Position;
+import ch.l2c03e.chess.engine.pieces.pawn.WhitePawn;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

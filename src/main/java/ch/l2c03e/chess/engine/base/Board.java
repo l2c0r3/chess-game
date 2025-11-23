@@ -1,6 +1,6 @@
 package ch.l2c03e.chess.engine.base;
 
-import ch.l2c03e.chess.engine.pieces.base.ChessPiece;
+import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +23,9 @@ public class Board {
 
     public void makeMove(ChessPiece chessPiece, Position position) {
         var boardPice = this.pieces.stream()
-                .filter(boardpice -> boardpice.getColor().equals(chessPiece.getColor()))
-                .filter(boardpice -> boardpice.getClass().equals(chessPiece.getClass()))
-                .filter(boardpice -> boardpice.getPosition().equals(position))
+                .filter(p -> p.getColor().equals(chessPiece.getColor()))
+                .filter(p -> p.getClass().equals(chessPiece.getClass()))
+                .filter(p -> p.getPosition().equals(position))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("No such chess piece"));
         boardPice.move(position);

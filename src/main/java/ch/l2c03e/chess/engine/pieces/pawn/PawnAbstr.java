@@ -1,15 +1,17 @@
-package ch.l2c03e.chess.engine.pieces.base;
+package ch.l2c03e.chess.engine.pieces.pawn;
 
+import ch.l2c03e.chess.engine.base.Color;
 import ch.l2c03e.chess.engine.base.Position;
+import ch.l2c03e.chess.engine.pieces.ChessPiece;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Pawn extends ChessPiece {
+public abstract class PawnAbstr extends ChessPiece {
 
-    public Pawn(Position startPosition) {
-        super(startPosition);
+    public PawnAbstr(Position startPosition, Color color) {
+        super(startPosition, color);
     }
 
     @Override
